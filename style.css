@@ -1,0 +1,109 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  /* use same green/teal theme as home.css */
+  --color-bg-start: #0ea5a4;
+  --color-bg-end: #34d399;
+  background: linear-gradient(135deg, var(--color-bg-start), var(--color-bg-end));
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Light theme overrides for auth page (when body has .light-theme) */
+.light-theme {
+  --color-bg-start: #f6fbf8;
+  --color-bg-end: #e6f8ef;
+}
+.light-theme body, body.light-theme {
+  background: linear-gradient(135deg, var(--color-bg-start), var(--color-bg-end));
+  color: #042f2b;
+}
+
+.container {
+  display: flex;
+  width: 90%;
+  max-width: 1000px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.left-section {
+  flex: 1;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.device-image {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.feature-list {
+  margin-top: 20px;
+}
+
+.feature {
+  margin: 10px 0;
+}
+
+.right-section {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 30px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 350px;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: none;
+  border-radius: 8px;
+}
+
+.btn-signin {
+  width: 100%;
+  background: #00c6ff;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ✅ Mobile Responsive */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .left-section {
+    display: none;
+  }
+
+  .right-section {
+    width: 100%;
+  }
+
+  .btn-signin {
+    font-size: 18px;
+  }
+}

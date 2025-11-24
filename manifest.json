@@ -1,0 +1,15 @@
+{
+  "name": "Smart Health Monitor",
+  "short_name": "HealthMonitor",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#5a5ce2",
+  "theme_color": "#5a5ce2",
+  "icons": [
+    {
+      "src": "app-icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

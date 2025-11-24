@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Health Monitor | Dashboard</title>
+  <link rel="stylesheet" href="home.css" />
+  <link rel="apple-touch-icon" href="app-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#5a5ce2">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d5a4d7.js" crossorigin="anonymous"></script>
+</head>
+<body class="light-theme">
+
+  <header class="navbar">
+    <h1><i class="fas fa-heartbeat"></i> Smart Health Monitor</h1>
+    <div class="nav-actions">
+      <button id="themeToggle" class="btn btn-ghost">Toggle theme</button>
+      <a href="admin.html" id="adminLink" class="admin-link">Admin</a>
+      <button id="logoutBtn">Logout</button>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="welcome">
+      <h2>Welcome User 👋</h2>
+      <p>Track your daily health stats and stay on top of your goals.</p>
+    </section>
+
+    <section class="cards">
+      <div class="card"><i class="fas fa-heart"></i><h3>Heart Rate</h3><p>72 bpm</p></div>
+      <div class="card"><i class="fas fa-tint"></i><h3>Water Intake</h3><p>1.5 L / 2.5 L</p></div>
+      <div class="card"><i class="fas fa-running"></i><h3>Activity</h3><p>4,200 steps</p></div>
+      <div class="card"><i class="fas fa-brain"></i><h3>Stress</h3><p>Normal</p></div>
+    </section>
+
+    <section class="water-reminder" id="waterReminderSection">
+      <h3>Water Reminder</h3>
+      <div class="water-controls">
+        <div class="water-stats">
+          <div>
+            <p>Consumed: <span id="waterConsumed">0 L</span></p>
+            <p>Goal: <span id="waterGoal">2.5 L</span></p>
+          </div>
+
+          <div>
+            <div class="water-meter" aria-hidden="true"><i></i></div>
+            <p style="margin-top:8px; font-size:13px; opacity:0.9">Progress: <span id="waterPercent">0%</span></p>
+          </div>
+        </div>
+
+        <div class="water-actions">
+          <label>
+            <input type="checkbox" id="enableReminder">
+            Enable reminders
+          </label>
+
+          <label>Interval (minutes): <input type="number" id="reminderInterval" min="1" value="60" style="width:80px"></label>
+
+          <button id="startReminder" class="btn">Start</button>
+          <button id="stopReminder" class="btn btn-secondary">Stop</button>
+          <button id="addGlass" class="btn btn-primary">+ Glass (250ml)</button>
+          <button id="resetWater" class="btn btn-ghost">Reset</button>
+          <button id="testNotification" class="btn btn-ghost">Test</button>
+        </div>
+      </div>
+      <p class="reminder-note">Tip: Allow browser notifications when prompted.</p>
+    </section>
+
+    <section class="health-monitor" id="healthMonitorSection">
+      <h3>Health Monitoring</h3>
+
+      <div class="health-current">
+        <div class="metric"><strong>Heart Rate</strong><p id="hrValue">-- bpm</p></div>
+        <div class="metric"><strong>Steps</strong><p id="stepsValue">0</p></div>
+        <div class="metric"><strong>Stress</strong><p id="stressValue">--</p></div>
+      </div>
+
+      <div class="health-controls">
+        <label>Interval (sec): <input type="number" id="monitorInterval" min="1" value="5" style="width:80px"></label>
+        <button id="startMonitor" class="btn btn-primary">Start Monitoring</button>
+        <button id="stopMonitor" class="btn btn-secondary">Stop</button>
+        <button id="simulateOnce" class="btn">Simulate</button>
+        <button id="clearHistory" class="btn btn-ghost">Clear History</button>
+      </div>
+
+      <div class="history">
+        <h4>Recent readings</h4>
+        <ul id="healthHistoryList" class="history-list"></ul>
+      </div>
+    </section>
+
+    <section class="bmi-section">
+      <h3>BMI Calculator</h3>
+      <div class="bmi-form">
+        <input type="number" id="height" placeholder="Height (cm)">
+        <input type="number" id="weight" placeholder="Weight (kg)">
+        <button id="calcBMI">Calculate</button>
+      </div>
+      <p id="bmiResult"></p>
+    </section>
+  </main>
+
+  <footer><p>© 2025 Smart Health Monitor | All rights reserved.</p></footer>
+
+  <script src="home.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>

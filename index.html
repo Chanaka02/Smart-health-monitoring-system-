@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smart Health Monitor | Auth</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="apple-touch-icon" href="app-icon.png">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#5a5ce2">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d5a4d7.js" crossorigin="anonymous"></script>
+</head>
+<body class="light-theme">
+
+  <div class="container">
+    <!-- Left Section -->
+    <div class="left-section">
+      <h1 class="app-title"><i class="fas fa-heartbeat"></i> Smart Health Monitor</h1>
+      <p class="subtitle">Your Personal Health Companion</p>
+      <p class="description">
+        Take control of your health with our comprehensive monitoring system.
+        Track vital metrics, stay hydrated, and get AI-powered health insights.
+      </p>
+
+      <img src="health_device.jpg" alt="Health Device" class="device-image">
+
+      <div class="feature-list">
+        <div class="feature"><i class="fas fa-heart"></i> Heart Rate Monitor</div>
+        <div class="feature"><i class="fas fa-tint"></i> Water Tracker</div>
+        <div class="feature"><i class="fas fa-running"></i> Activity Tracking</div>
+        <div class="feature"><i class="fas fa-brain"></i> Stress Monitor</div>
+      </div>
+    </div>
+
+    <!-- Right Section -->
+    <div class="right-section">
+      <div class="login-box" id="loginBox">
+        
+        <!-- Sign In Form -->
+        <div id="signinForm">
+          <h2>Welcome Back</h2>
+          <p class="login-sub">Sign in to access your health dashboard</p>
+
+          <form id="signin">
+            <label>Email</label>
+            <input id="signinEmail" type="email" placeholder="Enter your email" required>
+
+            <label>Password</label>
+            <div class="password-field">
+              <input id="signinPassword" type="password" placeholder="Enter your password" required>
+              <i class="fas fa-eye toggle-password"></i>
+            </div>
+
+            <button type="submit" class="btn-signin">Sign In</button>
+          </form>
+
+          <p class="signup-text">
+            Don't have an account? <a href="#" id="showSignup">Sign up</a>
+          </p>
+        </div>
+
+        <!-- Sign Up Form -->
+        <div id="signupForm" class="hidden">
+          <h2>Create Account</h2>
+          <p class="login-sub">Join Smart Health Monitor today</p>
+
+          <form id="signup">
+            <label>Full Name</label>
+            <input id="signupName" type="text" placeholder="Enter your full name" required>
+
+            <label>Email</label>
+            <input id="signupEmail" type="email" placeholder="Enter your email" required>
+
+            <label>Password</label>
+            <div class="password-field">
+              <input id="signupPassword" type="password" placeholder="Enter password (6+ chars)" required>
+              <i class="fas fa-eye toggle-password"></i>
+            </div>
+
+            <button type="submit" class="btn-signin">Sign Up</button>
+          </form>
+
+          <p class="signup-text">
+            Already have an account? <a href="#" id="showSignin">Sign in</a>
+          </p>
+        </div>
+
+        <div class="demo-box">
+          <strong>Note:</strong> You must register and sign in — passwords are stored securely on the server.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js');
+    }
+  </script>
+</body>
+</html>
